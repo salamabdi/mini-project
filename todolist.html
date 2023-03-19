@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>belajar apk todolist</title>
+    </head>
+    <!-- hasan abdi salam -->
+    <style type="text/css" media="all">
+    *{
+        font-family: Monospace;
+    }
+    body{
+        /* background-color: #12ADED; */
+        background: -webkit-linear-gradient(left,#121447,#12ADED);
+        /* background-repeat: no-repeat; */
+    }
+    input{
+        background-color: white;
+        padding: 10px;
+        border-radius: 12px;
+    }
+    button{
+        text-transform: capitalize;
+        color: white;
+        background-color: #121447;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0px 1px 18px #ffffff;
+    }
+        h1{
+            color: white;
+        }
+        span{
+            margin-right: 6px;
+            color: #12ADED;
+        }
+        li{
+            color: #121447;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            list-style: none;
+        }
+        .checked {
+            text-decoration: line-through;
+            font-style: italic;
+            color: #121447;
+        }
+        .kotak{
+            background:white;
+            border-radius: 8px;
+            box-shadow: 1px 2px 8px rgba(255, 255, 255, 0.65);
+            height: 150px;
+            width: 429px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+<body>
+    <center>
+        <br>
+        <h1><span>Todo</span>List</h1>
+        <br />
+        <div class="kotak">
+            <div>
+            <input type="text" id="to">
+            <button onclick="klik()">klik</button>
+            <button onclick="re()">hapus</button>
+            <ul id="lii"></ul>
+            </div>
+        </div>
+        
+    </center>
+    
+<script>
+    var list = document.getElementById("lii");
+    function klik() {
+            
+    var value = document.getElementById("to").value;
+    var li = document.createElement("LI");
+    var textNode = document.createTextNode(value);
+    li.appendChild(textNode);
+    list.appendChild(li);
+         }
+
+    list.addEventListener("click", function(ev) {
+    if(ev.target.tagName === "LI") {
+        ev.target.classList.toggle("checked");
+    }
+    }, false);
+    
+   
+    function re() {
+  const list = document.getElementById("lii");
+  if (list.hasChildNodes()) {
+    list.removeChild(list.children[0]);
+  }
+  }
+</script>
+</body>
+</html>
